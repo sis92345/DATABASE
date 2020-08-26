@@ -391,7 +391,54 @@
     WHERE deptno = 20 AND sal<=1000;
     ```
 
-    
+  - OR 예
+
+    ```sql
+    SELECT empno, ename, sal, deptno
+    FROM emp
+    WHERE deptno = 10 OR (sal >= 3000 AND sal <= 5000); 
+    ```
+
+- 연산자: P.101 ~ 
+
+  - %안씀 
+
+  - mod() 함수를 사용
+
+  - **NOT 연산자**: 논리부정연산자
+
+    - IN, BETWEEN, IS NULL과 함께 복합적으로 사용
+
+    ```sql
+    --논리부정연산자
+    SELECT deptno, dname, loc
+    FROM dept
+    WHERE NOT (deptno = 10 OR deptno = 20);
+    -- 결과: 부서번호가 10번과 20번이 아닌 부서 전부 출력
+    ```
+
+  - **IN연산자**
+
+    - OR대용으로 사용하는 연산자로 특정 열에 해당하는 조건을 여러 개 지정 할 수 있다.
+
+      ```sql
+      -- IN 연산자
+      SELECT deptno, dname, loc
+      FROM dept
+      WHERE deptno IN (10, 20); -- 부서번호가 10번과 20번인 부서를 조건으로 지정
+      --WHERE dept no NOT IN (10, 20); 앞에 NOT 코드와 같은 것
+      ```
+
+    - 예
+
+      ```sql
+      --사원테이블에서 직무가 SALESMAN이거나 MANAGER이거나 PRESIDENT인 사원의 사원이름, 직무 조회
+      SELECT ename, job
+      FROM emp
+      WHERE job IN('SALESMAN', 'MANAGER', 'PRESIDENT');
+      ```
+
+      
 
 ## 9. SQL 함수
 

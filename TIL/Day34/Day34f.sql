@@ -186,7 +186,8 @@ WHERE e.ename = 'SMITH'; -- 이 조건은 조인의 조건이 아니다.
 
 
 
-
+SELECT e.empno,e.deptno
+FROM dept d CROSS JOIN emp e;
 
 
 
